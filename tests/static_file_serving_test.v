@@ -1,6 +1,6 @@
 module main
 
-import hono_static
+import meiseayoung.hono_static
 import os
 
 // 测试：默认配置

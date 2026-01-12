@@ -1,4 +1,4 @@
-# hono.static
+# meiseayoung.hono_static
 
 Static file serving for v-hono-core framework.
 
@@ -12,21 +12,21 @@ Static file serving for v-hono-core framework.
 ## Installation
 
 ```bash
-v install hono
-v install hono.static
+v install meiseayoung.hono
+v install meiseayoung.hono_static
 ```
 
 ## Usage
 
 ```v
-import hono
-import hono.static
+import meiseayoung.hono
+import meiseayoung.hono_static
 
 fn main() {
     mut app := hono.Hono.new()
 
     // Serve files from ./public directory at /static path
-    app.use(static.serve_static(static.StaticOptions{
+    app.use(hono_static.serve_static(hono_static.StaticOptions{
         root: './public'
         path: '/static'
     }))

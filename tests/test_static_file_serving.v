@@ -1,7 +1,6 @@
 module main
 
 import hono_static
-import os
 
 // 测试：默认配置
 fn test_default_static_options() {
@@ -54,31 +53,6 @@ fn test_content_type_case_insensitive() {
 	assert hono_static.get_content_type('INDEX.HTML') == 'text/html; charset=utf-8'
 	assert hono_static.get_content_type('STYLE.CSS') == 'text/css; charset=utf-8'
 	assert hono_static.get_content_type('IMAGE.PNG') == 'image/png'
-}
-
-// 测试：ETag 生成
-fn test_generate_etag() {
-	content1 := 'Hello, World!'
-	content2 := 'Different content'
-	mtime1 := i64(1234567890)
-	mtime2 := i64(9876543210)
-	
-	// 相同内容和时间应该生成相同的 ETag
-	etag1 := hono_static.generate_etag(content1, mtime1)
-	etag2 := hono_static.generate_etag(content1, mtime1)
-	assert etag1 == etag2
-	
-	// 不同内容应该生成不同的 ETag
-	etag3 := hono_static.generate_etag(content2, mtime1)
-	assert etag1 != etag3
-	
-	// 不同时间应该生成不同的 ETag
-	etag4 := hono_static.generate_etag(content1, mtime2)
-	assert etag1 != etag4
-	
-	// ETag 应该包含引号
-	assert etag1.starts_with('"')
-	assert etag1.ends_with('"')
 }
 
 // 测试：自定义配置

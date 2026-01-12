@@ -1,7 +1,6 @@
 module hono_static
 
-import hono
-
+import meiseayoung.hono
 import os
 import x.json2
 
