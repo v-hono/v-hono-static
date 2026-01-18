@@ -1,4 +1,4 @@
-# meiseayoung.hono_static
+# hono_static
 
 Static file serving for v-hono-core framework.
 
@@ -12,15 +12,15 @@ Static file serving for v-hono-core framework.
 ## Installation
 
 ```bash
-v install meiseayoung.hono
-v install meiseayoung.hono_static
+v install --git https://github.com/v-hono/v-hono-core
+v install --git https://github.com/v-hono/v-hono-static
 ```
 
 ## Usage
 
 ```v
-import meiseayoung.hono
-import meiseayoung.hono_static
+import hono
+import hono_static
 
 fn main() {
     mut app := hono.Hono.new()
